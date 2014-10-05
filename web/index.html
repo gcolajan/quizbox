@@ -1,0 +1,56 @@
+<!doctype html>
+<html ng-app="QuizBoxApp">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="assets/css/vendors/foundation.5.4.5.min.css" />
+    <link rel="stylesheet" href="assets/css/design.css" />
+</head>
+<body ng-controller="QuizBoxController">
+
+    <div id="app">
+        <h1>QuizBox</h1>
+
+        <div ng-show="screen.start">
+            <span class="start">
+                <a href="#" ng-click="startGame()">Start</a>
+            </span>
+        </div>
+
+        <div id="questions" ng-show="screen.questions">
+
+            <span class="question" ng-click="getQuestion()">
+                <span ng-show="question == undefined" >Get the question!</span>
+                {{question.question}}
+            </span>
+
+            <ul class="responses">
+                <li ng-repeat="res in question.responses"><span ng-click="sendResponse($index)">{{res}}</span></li>
+            </ul>
+        </div>
+
+        <div ng-show="screen.score">
+            <h2>Score</h2>
+
+            <span>{{score}} %</span>
+
+            <span class="start">
+                <a href="#" ng-click="again()">Again</a>
+            </span>
+        </div>
+    </div>
+
+
+
+    <script src="assets/js/vendors/modernizr/modernizr.js"></script>
+    <script src="assets/js/vendors/jquery/jquery.js"></script>
+
+    <script src="assets/js/vendors/angularjs/angularjs.min.js"></script>
+    <script src="//localhost:8080/socket.io/socket.io.js"></script>
+    <script src="assets/js/app.js"></script>
+
+    <script src="assets/js/services/socket.js"></script>
+    <script src="assets/js/controllers/QuizBoxController.js"></script>
+
+
+</body>
+</html>

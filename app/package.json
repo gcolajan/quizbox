@@ -1,0 +1,8 @@
+{
+    "author": "Gautier Colajanni",
+    "name": "quizbox-server",
+    "version": "0.1.0",
+    "dependencies": {
+        "socket.io": "~1.0"
+    }
+}
